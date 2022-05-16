@@ -7,9 +7,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MenuComponent implements OnInit {
 
+  googleUrl : string
+  facebookUrl : string
+
   constructor() { }
 
   ngOnInit(): void {
+    this.googleUrl = "http://www.google.com"
+    this.facebookUrl = "http://www.fb.com"
   }
 
+  getUrlFacebook(){
+    return this.facebookUrl
+  }
 }

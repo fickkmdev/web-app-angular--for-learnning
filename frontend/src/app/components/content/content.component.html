@@ -3,9 +3,8 @@
 <div class="card">
     <div class="card-body">
         <h4 class="card-title">Event Binding</h4>
-        <button type="button" class="btn btn-primary btn-lg btn-block">Please Click</button>
-        <button type="button" class="btn btn-secondary btn-lg btn-block">Please Double
-            Click</button>
+        <button type="button" class="btn btn-primary btn-lg btn-block" (click)="onUserClick($event)">Please Click</button>
+        <button type="button" class="btn btn-secondary btn-lg btn-block" (dblclick)="onUserDoubleClick($event)">Please Double Click</button>
     </div>
 </div>
 <br />
@@ -13,8 +12,8 @@
     <div class="card-body">
         <h4 class="card-title">Two-way Binding</h4>
         <div class="form-group">
-            <textarea class="form-control" rows="5" id="comment"></textarea><br />
-            <label for="comment">Comment:</label>
+            <textarea class="form-control" rows="5" id="comment" [(ngModel)]="comment"></textarea><br />
+            <label for="comment">Comment: {{comment}}</label>
         </div>
     </div>
 </div>

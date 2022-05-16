@@ -7,9 +7,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfileComponent implements OnInit {
 
+  id: string
+  name : string
+  year: number
+
   constructor() { }
 
   ngOnInit(): void {
+    this.id = "B6104696"
+    this.name = "somkiart"
+    this.year = 2000
+  }
+
+  getName(){
+    return this.name
   }
 
 }
