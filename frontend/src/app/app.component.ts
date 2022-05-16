@@ -7,21 +7,19 @@ import { Person } from './model/Person';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
+
 export class AppComponent {
   constructor(
-    private http : HttpClient
-  ){}
+    private http: HttpClient
+  ) { }
 
-  id : string;
-  name : string;
+  id: string;
+  name: string;
 
-  ngOnInit(){
-    this.http.get<Person>('http://localhost:3000/api/resource').subscribe(data=>{
+  ngOnInit() {
+    this.http.get<Person>('http://localhost:3000/api/resource').subscribe(data => {
       this.id = data.id;
       this.name = data.name;
     })
   }
-
-
-
 }
