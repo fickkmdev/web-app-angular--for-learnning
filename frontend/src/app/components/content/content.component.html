@@ -12,7 +12,7 @@
     <div class="card-body">
         <h4 class="card-title">Two-way Binding</h4>
         <div class="form-group">
-            <textarea class="form-control" rows="5" id="comment" [(ngModel)]="comment"></textarea><br />
+            <textarea [(ngModel)]="comment" class="form-control" rows="5" id="comment"></textarea><br />
             <label for="comment">Comment: {{comment}}</label>
         </div>
     </div>
