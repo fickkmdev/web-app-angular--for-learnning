@@ -6,15 +6,51 @@
         <div class="card-body" style="margin-left: 10px;">
             <div class="row">
                 <div class="col-md-7">
-                    <form>
+                    <form [formGroup]="profileForm">
                         <div class="form-group">
                             <label>first name:</label>
-                            <input type="text" class="form-control" [formControl]="firstName">
+                            <input type="text" class="form-control" formControlName="firstName">
                         </div>
                         <div class="form-group">
                             <label>last name:</label>
-                            <input type="text" class="form-control" [formControl]="lastName">
+                            <input type="text" class="form-control" formControlName="lastName">
                         </div>
+
+                        <div class="form-check form-check-inline">
+                            <label class="form-check-label">
+                                Male
+                                <input type="radio" class="form-check-input" name="sex" value="Male">
+                            </label>
+                        </div>
+
+                        <div class="form-check form-check-inline">
+                            <label class="form-check-label">
+                                Female
+                                <input type="radio" class="form-check-input" name="sex" value="Female">
+                            </label>
+                        </div>
+
+                        <div formGroupName="address">
+                            <h4>Address</h4>
+                            <div class="form-group">
+                                <label>Street : </label>
+                                <input type="text" class="form-control" formControlName="street">
+                            </div>
+                            <div class="form-group">
+                                <label>City : </label>
+                                <input type="text" class="form-control" formControlName="city">
+                            </div>
+                        </div>
+                        <div formArrayName="aliases">
+                            <h4>Aliases</h4>
+                            <button class="btn btn-success" (click)="addAlias()">Add alias</button>
+                        </div>
+
+                        <div class="form-group" *ngFor="let alias of aliases.controls; let i=index">
+                            <label>alias : {{i}}</label>
+                            <input type="text" class="form-control" formControlName="aliases">
+                        </div>
+
                         <br><br>
                         <button type="submit" class="btn btn-primary">submit</button>&nbsp;
                         <button type="submit" class="btn btn-danger">reset</button>
@@ -27,8 +63,7 @@
                                 Display
                             </h4>
                             <p class="card-text">
-                                FirstName : {{firstName.value}} <br>
-                                LastName : {{lastName.value}}                
+                                {{profileForm.value|json}}
                             </p>
                         </div>
                     </div>

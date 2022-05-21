@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { FormArray, FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-signup',
@@ -8,12 +8,29 @@ import { FormControl } from '@angular/forms';
 })
 export class SignupComponent implements OnInit {
 
-  firstName = new FormControl('');
-  lastName = new FormControl('');
+  profileForm = new FormGroup({
+    firstName : new FormControl(''),
+    lastName : new FormControl(''),
+    address : new FormGroup({
+      street : new FormControl(''),
+      city: new FormControl('')
+    }),
+    aliases : new FormArray([
+      new FormControl('')
+    ])
+  })
+
+  get aliases(){
+    return this.profileForm.get("aliases") as FormArray
+  }
 
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  addAlias(){
+    this.aliases.push(new FormControl(''))
   }
 
 }
